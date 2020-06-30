@@ -1,6 +1,6 @@
 {
-  "name": "react-datatable-bootstrap",
-  "version": "1.0.0",
+  "name": "react-datatable-with-bootstrap",
+  "version": "1.0.3",
   "description": "React Bootstrap DataTable Package that handle server side",
   "author": "emmanuelshekinah",
   "license": "MIT",
@@ -24,7 +24,10 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0"
   },
   "devDependencies": {
     "microbundle-crl": "^0.13.10",
@@ -45,9 +48,15 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0"
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0"
+  }
 }

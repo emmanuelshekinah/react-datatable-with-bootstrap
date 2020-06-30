@@ -35,6 +35,8 @@ export default class ReactDataTable extends Component {
       apiData: this.props.dataTableData.data,
       pageNate: this.props.dataTableData.pageNate,//---
       totalTableData: this.props.dataTableData.totalTableData
+    }, ()=>{
+      this.props.dataTableOnChange(this.state)
     })
   }
   componentWillReceiveProps(nextProps){
@@ -52,7 +54,6 @@ export default class ReactDataTable extends Component {
     this.setState({
       skip: skip
     }, ()=>{
-
       this.props.dataTableOnChange(this.state)
     })
 

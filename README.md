@@ -21,7 +21,6 @@ export default class App extends Component{
     super(props);
     this.state = {
       dataTablesOptions: {
-        'url': '/getAllEmployee',
         'colums': [
 
           {
@@ -141,6 +140,10 @@ export default class App extends Component{
 
 
 ```
+
+## Table json Example
+
+## API Response Json
 
 ## License
 

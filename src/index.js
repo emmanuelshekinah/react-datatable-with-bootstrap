@@ -91,20 +91,25 @@ export default class ReactDataTable extends Component {
           <thead>
           <tr>
             {this.state.columns.map((item, index) => {
-              if (item.show === true && item.button.show === false) {//show only data
+              if ( item.button.show === false) {//show only data
                 if (item.order === true) {
                   return (<th width={item.width} scope="col" key={index}>{item.title}
                     <a href="#" onClick={this.changeOrder.bind(this, item.name)}> &nbsp;
-                      <i className="fa fa-sort " aria-hidden="true"></i></a>
+                      <i className="fa fa-sort " aria-hidden="true"></i>
+                    </a>
                   </th>)
                 } else {
                   return (<th width={item.width} scope="col" key={index}>{item.title}</th>)
                 }
 
-              } else if (item.show === true && item.button.show === true) {// show data and button
-                return (<th width={item.width} scope="col" key={index}>{item.title} {item.order ? (
-                  <a href="#" onClick={this.changeOrder.bind(this, item.name)}><i className="fa fa-sort "
-                                                                                  aria-hidden="true"></i></a>) : (<></>)}</th>)
+              } else if ( item.button.show === true) {// show data and button
+                return (
+                        <th width={item.width} scope="col" key={index}>{item.title} 
+                        {item.order ===true && (
+                          <a href="#" onClick={this.changeOrder.bind(this, item.name)}>
+                            <i className="fa fa-sort " aria-hidden="true"></i></a>)}
+                        </th>
+                        )
               } else if (item.show === false && item.button.show === true) {// show button
                 // return (<th width={item.width} scope="col" key={index}>{item.button.title} {item.order ? (<a href="#" onClick={this.changeOrder.bind(this,item.name)}><i class="fa fa-sort " aria-hidden="true"></i></a>):(<></>)}</th>)
                 return (<th width={item.width} scope="col" key={index}>{item.button.title}</th>)
@@ -122,22 +127,54 @@ export default class ReactDataTable extends Component {
 
                   for (var i = 0; i < this.state.columns.length; i++) {
                     if (cols.name === Object.keys(item)[i]) {
-                      if (cols.show === true && cols.button.show === true) {//text and button
+
+                      if (cols.show === true && cols.button.show === true && cols.fa_icon.show===false) {//text and button
                         return (<td>{item[cols.name]}
                           <button type="button" event={item} id={item.id} name={cols.name}
                                   onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)}
                                   className="btn btn-primary">{cols.button.title}</button>
                         </td>)
-                      } else if (cols.show === true && cols.button.show === false) {//only text
+                      } 
+                      
+                      
+                      else if (cols.show === true && cols.button.show === false && cols.fa_icon.show===false) {//only text
+                        return (<td>{item[cols.name]}</td>)
+                      }
+
+                      else if (cols.show === true && cols.button.show === false && cols.fa_icon.show===true) {//only text and fa icon
+                        if(cols.fa_icon.position==='before'){
+                          return (<td>{item[cols.name]} <i event={item} id={item.id} name={cols.name}
+                            onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)} 
+                            class={cols.fa_icon.className} style={{cursor: 'pointer'}} aria-hidden="true"></i> </td>)
+                        }else{
+                          return(<td>
+                                    <i event={item} id={item.id} name={cols.name}
+                                    onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)} 
+                                    class={cols.fa_icon.className} style={{cursor: 'pointer'}} aria-hidden="true"></i> 
+                                     {item[cols.name]}</td>)
+                        }
+                       
+                      }else{//otherwise show only text
                         return (<td>{item[cols.name]}</td>)
                       }
 
                     }
+                    
+                    else if (cols.show === false && cols.button.show === false && cols.fa_icon.show===true) {//only fa icon
+                      return(<td><i event={item} id={item.id} name={cols.name}
+                        onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)} 
+                        class={cols.fa_icon.className} style={{cursor: 'pointer'}} aria-hidden="true"></i> </td>)
+                    }
+
+
+
+
+                    
                     if (cols.show === false && cols.button.show === true) {//only button
                       return (<td>
                         <button type="button" event={item} id={item.id} name={cols.name}
                                 onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)}
-                                className="btn btn-primary">{cols.button.title}</button>
+                                className={cols.button.className}>{cols.button.title}</button>
                       </td>)
                     }
 
@@ -152,7 +189,7 @@ export default class ReactDataTable extends Component {
           </tbody>
         </table>
         <PagiNate paginateMethod={this.paginate}
-                  pageNate={[1,2,3,4,5]}
+                  pageNate={this.state.pageNate}
                   skip={this.state.skip}
                   take={this.state.take}
                   totalTableData={this.state.totalTableData}

@@ -21,8 +21,8 @@ class PagiNate extends Component{
       skip: nextProps.skip,
       take: nextProps.take
     },()=>{
-      console.clear()
-      console.log(this.state)
+      // console.clear()
+      console.log('paginate States: ',this.state)
       this.setState({
         pageNo: (this.state.skip/this.state.take)+1
       }, ()=>{
@@ -69,7 +69,7 @@ class PagiNate extends Component{
                 if(item===this.state.skip){
 
                   return (
-                    <li className="page-item active">
+                    <li className="page-item active" key={index}>
                     <a className="page-link"
                        href="#"
                     >{index+1}</a>
@@ -77,7 +77,7 @@ class PagiNate extends Component{
                   )
                 }else{
                     return(
-                      <li className="page-item">
+                      <li className="page-item"  key={index}>
                       <a className="page-link"
                          href="#"
                          onClick={this.props.paginateMethod.bind(this,item)}>{index+1}</a>

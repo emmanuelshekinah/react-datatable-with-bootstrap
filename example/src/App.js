@@ -7,91 +7,75 @@ export default class App extends Component{
     this.state = {
       dataTablesOptions: {
         'colums': [
-
-          {
-              'name': 'id',
-              'width': '',
-              'show': false,
-              'title': '#',
-              'order': false,
-              'button': {
-                  'actionType': 'edit',
-                  'show': false,
-                  'title': '',
-                  'passValue': 'id'
+          { 'column_properties': {
+                'name': 'id',
+                'title': '#',
+                'width': '',
+                'allowSort': false
               },
-              'fa_icon':{
-                  'show': true,
-                  'className': 'fa fa-pencil-square',
-                  'position': 'before',//after
-                  'actionType': 'edit',
-                  'passValue': 'id',
-              }
-          },
-          {
-              'name': 'updated_at',
-              'width': '',
-              'show': true,
-              'title': 'Scheme Name g',
-              'order': false,
-              'button': {
-                  'show': false
+              'text':{
+                'show': false,
+                'className': ''
               },
-              'fa_icon':{
-                  'show': true,
-                  'className': 'fa fa-pencil-square',
-                  'position': 'before'//after
-              }
-          },
-          {
-              'name': 'active',
-              'width': '',
-              'show': true,
-              'title': 'Active',
-              'order': true,
-              'button': {
-                  'show': false
-              },
-              'fa_icon':{
-                  'show': false,
-                  'className': 'fa fa-pencil-square',
-                  'position': 'before'//after
-              }
-          },
-          {
-              'name': 'active',
-              'width': '',
-              'show': true,
-              'title': 'Active',
-              'order': true,
-              'button': {
-                  'show': false
-              },
-              'fa_icon':{
-                  'show': false,
-                  'className': 'fa fa-pencil-square',
-                  'position': 'before'//after
-              }
-          },
-          {
-              'name': '',
-              'width': '',
-              'show': false,
-              'title': 'Preview',
-              'order': false,
               'button': {
                   'actionType': 'preview',
-                  'show': true,
+                  'show': false,
                   'title': 'Agreement PDF',
                   'passValue': 'id',
                   'className': 'btn btn-outline-success btn-sm'
               },
               'fa_icon':{
-                  'show': false,
+                  'show': true,
                   'className': 'fa fa-pencil-square',
                   'position': 'before'//after
               }
+          },
+          { 'column_properties': {
+            'name': 'name',
+            'title': 'Scheme Name',
+            'width': '',
+            'allowSort': true
+          },
+          'text':{
+            'show': true,
+            'className': ''
+          },
+          'button': {
+              'actionType': 'preview',
+              'show': false,
+              'title': 'Agreement PDF',
+              'passValue': 'id',
+              'className': 'btn btn-outline-success btn-sm'
+          },
+          'fa_icon':{
+              'show': false,
+              'className': 'fa fa-pencil-square',
+              'position': 'before'//after
           }
+      },
+      { 'column_properties': {
+        'name': 'active',
+        'title': 'ACtive',
+        'width': '',
+        'allowSort': true
+      },
+      'text':{
+        'show': true,
+        'className': ''
+      },
+      'button': {
+          'actionType': 'preview',
+          'show': false,
+          'title': 'Agreement PDF',
+          'passValue': 'id',
+          'className': 'btn btn-outline-success btn-sm'
+      },
+      'fa_icon':{
+          'show': false,
+          'className': 'fa fa-pencil-square',
+          'position': 'before'//after
+      }
+  }
       ]
 
       },
@@ -100,105 +84,6 @@ export default class App extends Component{
         'totalTableData': 12,
         'data': [
           {
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
-
-          },{
             'active':1,
             'created_at': '1es.shekinah@gmail.com',
             'cycle_id': '0728999919',

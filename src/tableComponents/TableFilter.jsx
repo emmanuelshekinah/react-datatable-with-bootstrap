@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
+import './Search_input.css'
 
 class TableFilter extends Component{
   constructor(props) {
@@ -18,7 +21,7 @@ class TableFilter extends Component{
   render() {
     return (
       <div className="row">
-        <div className="col-3">
+        <div className="col-4">
           <select className="form-control-sm form-control"
                   onChange={this.props.changeRecordsPerPage.bind(this)}
           >
@@ -28,13 +31,28 @@ class TableFilter extends Component{
             <option value={100}>100 records per page</option>
           </select>
         </div>
-        <div className="col-6"></div>
-        <div className="col-3 text-right padding_right">
-          <div className="input-group input-group-sm">
+        <div className="col-4 text-center">
+          <h5><b>{this.props.tableOptions.table_title}</b></h5>
+          
+        </div>
+        <div className="col-4 text-right padding_right">
+
+
+          {/* <div className="input-group input-group-sm">
             <div className="input-group-prepend">
               <span className="input-group-text">Search</span></div>
             <input type="text" className="form-control remove-outline" value={this.state.search} onChange={this.props.search.bind(this)}/>
-          </div>
+          </div> */}
+
+                    <div className="input-group input-group-sm">
+                        <div className="searchbar">
+                            <input type="text" className="search_input effect-1" value={this.state.search} onChange={this.props.search.bind(this)}/>
+                          
+                            <a href="#" className="search_icon search-wrapper bg-light">
+                                <i className="search-icon bg-light" id="search_icon"><FontAwesomeIcon icon={faSearch} /></i>
+                            </a>
+                        </div>
+                    </div>
         </div>
         <br />
         <br />

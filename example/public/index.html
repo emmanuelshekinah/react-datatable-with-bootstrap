@@ -28,6 +28,72 @@
     <title>react-datatable-bootstrap</title>
     <style>
       .pointer {cursor: pointer;}
+      /* add css module styles here (optional) */
+
+.test {
+  margin: 2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+  font-size: 2em;
+  text-align: center;
+}
+/*****************search************************************************************************************************/
+.searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 44px;
+  /* background-color: #;*/
+  border-radius: 30px;
+  padding: 3px;
+  padding-right: 3px;
+  padding-bottom: 10px;
+}
+.search_input{
+  /* color: ;*/
+  border: 1px;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 30px;
+  transition: width 0.4s linear;
+  border-color: red;
+}
+.searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 180px;
+  caret-color:red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+  background: white;
+  color: rgb(0, 22, 78);;
+}
+.search_icon{
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  /* color:;*/
+  text-decoration:none;
+  margin-bottom: -15px;
+}
+
+#search_icon {
+  padding: 0px;
+  border-radius: 25px;
+}
+/*label*/
+.effect-1,
+.effect-2,
+.effect-3{border: 0; padding: 7px 0; border-bottom: 1px solid #ccc;}
+
+.effect-1 ~ .focus-border{position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: #3399FF; transition: 0.4s;}
+.effect-1:focus ~ .focus-border{width: 100%; transition: 0.4s;}
     </style>
   </head>
 

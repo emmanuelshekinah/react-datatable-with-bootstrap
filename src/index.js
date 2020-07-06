@@ -77,6 +77,10 @@ export default class ReactDataTable extends Component {
   onAction(e){
     console.log('You have clicked record no: ')
   }
+  buttons =(e)=>{
+    console.log('Functions ',e);
+    
+  }
   render(){
     return(
       <div>
@@ -85,6 +89,7 @@ export default class ReactDataTable extends Component {
                      searchInput={this.state.searchInput}
                      changeRecordsPerPage={this.changeRecordsPerPage}
                      filterId={this.state.filterId}
+                     tableOptions={this.props.dataTablesOptions.tableOptions}
                      toChild={this.state}
         />
         <table className="table table-hover">
@@ -130,9 +135,42 @@ export default class ReactDataTable extends Component {
                       // if (cols.show === true && cols.button.show === true && cols.fa_icon.show===false) {//text and button
                         return (
                                   <td key={index+i}>
-                                    {cols.fa_icon.show===true && (<i className={cols.fa_icon.className} aria-hidden="true"></i>)}
+                                    {cols.fa_icon.show===true && (<i className={cols.fa_icon.className} onClick={this.props.dataTableBtnAction.bind(this, item[cols.fa_icon.passValue], cols.fa_icon.actionType)} aria-hidden="true" style={{cursor: 'pointer'}}></i>)}
                                     {cols.text.show===true && (<span className={cols.text.className}>{item[cols.column_properties.name]}</span>)}
-                                    {cols.button.show===true && (
+                                    
+                                    {cols.button.map((btn, i)=>{
+                                      return (
+                                        <div>&nbsp;
+                                          <button type="button" 
+                                            event={item} 
+                                            id={item.id} 
+                                            name={cols.column_properties.name}
+                                            onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                            className={btn.className}>
+                                            {btn.title}
+                                        </button>
+                                        </div>
+                                      )
+                                    })}
+                                    
+                                    {/* Buttons */}
+                                    {/* {cols.button.map((btn, i)=>{
+                                      if(btn.show===true){
+                                        return (
+                                          <button type="button" 
+                                            event={item} 
+                                            id={item.id} 
+                                            name={cols.column_properties.name}
+                                            onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                            className={btn.className}>
+                                              {btn.title}
+                                          </button>
+                                        )
+                                      }
+                                    })} */}
+
+
+                                    {/* {cols.button.show===true && (
                                        <button type="button" 
                                             event={item} 
                                             id={item.id} 
@@ -141,7 +179,7 @@ export default class ReactDataTable extends Component {
                                             className={cols.button.className}>
                                               {cols.button.title}
                                           </button>
-                                    )}
+                                    )} */}
                                     
                                   </td>
                                 )

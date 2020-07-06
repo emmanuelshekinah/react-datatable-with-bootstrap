@@ -6,6 +6,9 @@ export default class App extends Component{
     super(props);
     this.state = {
       dataTablesOptions: {
+        'tableOptions': {
+          'table_title': 'Hello'
+        },
         'colums': [
           { 'column_properties': {
                 'name': 'id',
@@ -17,13 +20,22 @@ export default class App extends Component{
                 'show': false,
                 'className': ''
               },
-              'button': {
+              'button': [
+                {
                   'actionType': 'preview',
-                  'show': false,
-                  'title': 'Agreement PDF',
+                  'show': true,
+                  'title': 'Agreement PDF 1',
                   'passValue': 'id',
                   'className': 'btn btn-outline-success btn-sm'
-              },
+                },
+                {
+                  'actionType': 'preview',
+                  'show': true,
+                  'title': 'Agreement PDF 2',
+                  'passValue': 'id',
+                  'className': 'btn btn-outline-success btn-sm'
+                }
+              ],
               'fa_icon':{
                   'show': true,
                   'className': 'fa fa-pencil-square',
@@ -40,13 +52,15 @@ export default class App extends Component{
             'show': true,
             'className': ''
           },
-          'button': {
+          'button': [
+            {
               'actionType': 'preview',
               'show': false,
               'title': 'Agreement PDF',
               'passValue': 'id',
               'className': 'btn btn-outline-success btn-sm'
-          },
+            }
+          ],
           'fa_icon':{
               'show': false,
               'className': 'fa fa-pencil-square',
@@ -63,13 +77,15 @@ export default class App extends Component{
         'show': true,
         'className': ''
       },
-      'button': {
+      'button': [
+        {
           'actionType': 'preview',
           'show': false,
           'title': 'Agreement PDF',
           'passValue': 'id',
           'className': 'btn btn-outline-success btn-sm'
-      },
+        }
+      ],
       'fa_icon':{
           'show': false,
           'className': 'fa fa-pencil-square',
@@ -83,6 +99,16 @@ export default class App extends Component{
         'pageNate': [0,10],
         'totalTableData': 12,
         'data': [
+          {
+            'active':1,
+            'created_at': '1es.shekinah@gmail.com',
+            'cycle_id': '0728999919',
+            'html_pdf_template': 'Emmanuel Shekinah 1',
+            'id': 'Emmanuel Shekinah 1',
+            'name': 'hhhdgddg',
+            'updated_at': 'hhhh'
+
+          },
           {
             'active':1,
             'created_at': '1es.shekinah@gmail.com',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 // import styles from './styles.module.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import TableFilter from "./tableComponents/TableFilter";
@@ -130,60 +130,66 @@ export default class ReactDataTable extends Component {
                     console.log('Data Table objects: ',Object.keys(item)[i]);
                         
                     if (cols.column_properties.name === Object.keys(item)[i]) {
-                        // console.log('Data Table objects: ',Object.keys(item)[i]);
-                        
-                      // if (cols.show === true && cols.button.show === true && cols.fa_icon.show===false) {//text and button
+                       
                         return (
                                   <td key={index+i}>
-                                    {cols.fa_icon.show===true && (<i className={cols.fa_icon.className} onClick={this.props.dataTableBtnAction.bind(this, item[cols.fa_icon.passValue], cols.fa_icon.actionType)} aria-hidden="true" style={{cursor: 'pointer'}}></i>)}
-                                    {cols.text.show===true && (<span className={cols.text.className}>{item[cols.column_properties.name]}</span>)}
-                                    
-                                    {cols.button.map((btn, i)=>{
-                                      return (
-                                        <div>&nbsp;
-                                          <button type="button" 
-                                            event={item} 
-                                            id={item.id} 
-                                            name={cols.column_properties.name}
-                                            onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
-                                            className={btn.className}>
-                                            {btn.title}
-                                        </button>
-                                        </div>
-                                      )
-                                    })}
-                                    
-                                    {/* Buttons */}
-                                    {/* {cols.button.map((btn, i)=>{
-                                      if(btn.show===true){
-                                        return (
-                                          <button type="button" 
-                                            event={item} 
-                                            id={item.id} 
-                                            name={cols.column_properties.name}
-                                            onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
-                                            className={btn.className}>
-                                              {btn.title}
-                                          </button>
+                                   
+
+
+                                   {/* Fa Icons */}
+                                    {cols.fa_icon.map((fa, fai)=>{
+                                      if(fa.show===true){
+                                        return(
+                                         
+                                            <i className={fa.className} 
+                                              onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)} 
+                                              aria-hidden="true" style={{cursor: 'pointer'}}
+                                              >&nbsp;</i>
+                                         
                                         )
                                       }
-                                    })} */}
+                                    })}
+                                    {/* End--Fa Icons */}
+                                    
+
+                                    {/* Text */}
+                                    {cols.text.map((txt, txi)=>{
+                                      if(txt.show===true){
+                                        return(
+                                            <span className={txt.className}>&nbsp;{item[txt.name]}</span>
+                                         
+                                        )
+                                      }
+                                    })}
+                                   {/* End--Text */}
 
 
-                                    {/* {cols.button.show===true && (
-                                       <button type="button" 
-                                            event={item} 
-                                            id={item.id} 
-                                            name={cols.column_properties.name}
-                                            onClick={this.props.dataTableBtnAction.bind(this, item[cols.button.passValue], cols.button.actionType)}
-                                            className={cols.button.className}>
-                                              {cols.button.title}
-                                          </button>
-                                    )} */}
+                                    {/* Buutons */}
+                                    {cols.button.map((btn, i)=>{
+                                      return (
+                                        <Fragment>&nbsp;
+                                          {btn.show===true && (
+                                             
+                                                <button type="button" 
+                                                  event={item} 
+                                                  id={item.id} 
+                                                  name={cols.column_properties.name}
+                                                  onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                                  className={btn.className}>
+                                                  {btn.title}
+                                              </button>
+                                             
+                                          )}
+                                          
+                                        </Fragment>
+                                      )
+                                    })}
+                                    {/* End--Buttons */}
+                                   
                                     
                                   </td>
                                 )
-                      // } 
+                
 
 
 

@@ -16,10 +16,18 @@ export default class App extends Component{
                 'width': '',
                 'allowSort': false
               },
-              'text':{
-                'show': false,
-                'className': ''
-              },
+              'text':[
+                {
+                  'name': 'active',
+                  'show': true,
+                  'className': ''
+                },
+                {
+                  'name': 'active',
+                  'show': true,
+                  'className': ''
+                }
+              ],
               'button': [
                 {
                   'actionType': 'preview',
@@ -36,11 +44,13 @@ export default class App extends Component{
                   'className': 'btn btn-outline-success btn-sm'
                 }
               ],
-              'fa_icon':{
+              'fa_icon':[
+                {
                   'show': true,
                   'className': 'fa fa-pencil-square',
-                  'position': 'before'//after
-              }
+                  'position': 'before'
+                }
+              ]
           },
           { 'column_properties': {
             'name': 'name',
@@ -48,10 +58,18 @@ export default class App extends Component{
             'width': '',
             'allowSort': true
           },
-          'text':{
-            'show': true,
-            'className': ''
-          },
+          'text':[
+            {
+              'name': 'active',
+              'show': true,
+              'className': ''
+            },
+            {
+              'name': 'active',
+              'show': true,
+              'className': ''
+            }
+          ],
           'button': [
             {
               'actionType': 'preview',
@@ -61,22 +79,32 @@ export default class App extends Component{
               'className': 'btn btn-outline-success btn-sm'
             }
           ],
-          'fa_icon':{
-              'show': false,
+          'fa_icon':[
+            {
+              'show': true,
               'className': 'fa fa-pencil-square',
-              'position': 'before'//after
-          }
+              'position': 'before'
+            }
+          ]
       },
       { 'column_properties': {
         'name': 'active',
-        'title': 'ACtive',
+        'title': 'Active',
         'width': '',
         'allowSort': true
       },
-      'text':{
-        'show': true,
-        'className': ''
-      },
+      'text':[
+        {
+          'name': 'active',
+          'show': true,
+          'className': ''
+        },
+        {
+          'name': 'active',
+          'show': true,
+          'className': ''
+        }
+      ],
       'button': [
         {
           'actionType': 'preview',
@@ -86,11 +114,18 @@ export default class App extends Component{
           'className': 'btn btn-outline-success btn-sm'
         }
       ],
-      'fa_icon':{
-          'show': false,
+      'fa_icon':[
+        {
+          'show': true,
+          'className': 'fa fa-address-book',
+          'position': 'before'
+        },
+        {
+          'show': true,
           'className': 'fa fa-pencil-square',
-          'position': 'before'//after
-      }
+          'position': 'before'
+        }
+      ]
   }
       ]
 
@@ -110,7 +145,7 @@ export default class App extends Component{
 
           },
           {
-            'active':1,
+            'active':'Emmanuel Shekinah',
             'created_at': '1es.shekinah@gmail.com',
             'cycle_id': '0728999919',
             'html_pdf_template': 'Emmanuel Shekinah 1',

@@ -164,10 +164,11 @@ export default class ReactDataTable extends Component {
                                    {/* End--Text */}
 
 
-                                    {/* Buutons */}
+                                    {/* Buttons */}
                                     {cols.button.map((btn, i)=>{
                                       return (
-                                        <Fragment>&nbsp;
+                                        <Fragment>
+                                          &nbsp;
                                           {btn.show===true && (
                                              
                                                 <button type="button" 
@@ -185,6 +186,51 @@ export default class ReactDataTable extends Component {
                                       )
                                     })}
                                     {/* End--Buttons */}
+                                   
+                                     {/* Input */}
+                                     {cols.input.map((input, data)=>{
+
+                                       if(input.input_type==='text'){
+                                        return (
+                                          <Fragment>
+                                            
+                                            &nbsp;
+                                            {input.show===true && (
+                                               
+                                               <div className="input-group">
+                                                  <input type={input.input_type} name={input.name} id={input.id} className={input.className}
+                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                   defaultValue={input.defaultValue} />
+                                             </div>
+                                               
+                                            )}
+                                            
+                                          </Fragment>
+                                        )
+                                       }
+                                       else if(input.input_type==='checkbox'){
+                                        return (
+                                          <Fragment>
+                                            
+                                            &nbsp;
+                                            {input.show===true && (
+                                               
+                                               <div className="">
+                                                  <input type={input.input_type} name={input.name} id={input.id} className={input.className}
+                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                  defaultChecked={input.defaultChecked} />
+                                             </div>
+                                               
+                                            )}
+                                            
+                                          </Fragment>
+                                        )
+                                      }else if(input.input_type==='textarea'){
+
+                                      }
+                                      
+                                    })}
+                                    {/* End--Input */}
                                    
                                     
                                   </td>

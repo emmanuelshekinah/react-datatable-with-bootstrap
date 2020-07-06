@@ -50,6 +50,17 @@ export default class App extends Component{
                   'className': 'fa fa-pencil-square',
                   'position': 'before'
                 }
+              ],
+              'input': [
+                {
+                  'show': true,
+                  'name': 'cell',
+                  'id': 'cell',
+                  'input_type': 'text',
+                  'className': '',
+                  'defaultValue': 'Hello',
+                  
+                }
               ]
           },
           { 'column_properties': {
@@ -85,12 +96,23 @@ export default class App extends Component{
               'className': 'fa fa-pencil-square',
               'position': 'before'
             }
+          ],
+          'input': [
+            {
+              'show': true,
+              'name': 'cell',
+              'id': 'cell',
+              'input_type': 'checkbox',
+              'className': 'custom-control custom-checkbox',
+              'defaultChecked': true,
+              
+            }
           ]
       },
       { 'column_properties': {
         'name': 'active',
         'title': 'Active',
-        'width': '',
+        'width': '10%',
         'allowSort': true
       },
       'text':[
@@ -124,6 +146,16 @@ export default class App extends Component{
           'show': true,
           'className': 'fa fa-pencil-square',
           'position': 'before'
+        }
+      ],
+      'input': [
+        {
+          'show': true,
+          'name': 'cell',
+          'id': 'cell',
+          'input_type': 'text',
+          'defaultValue': 'Hello',
+          
         }
       ]
   }
@@ -160,6 +192,7 @@ export default class App extends Component{
     }
     this.dataTableBtnAction = this.dataTableBtnAction.bind(this)
     this.dataTableOnChange = this.dataTableOnChange.bind(this)
+    this.dataTableOnChangeInput = this.dataTableOnChangeInput.bind(this)
   }
   dataTableBtnAction(id, actionType,e){
     console.log('Onclick Id value: ', id);
@@ -170,6 +203,12 @@ export default class App extends Component{
   dataTableOnChange(state){
     console.log('Change States from DataTable: ', state)
   }
+  dataTableOnChangeInput(e){
+    console.log(e.target.name+' :'+e.target.value);
+    
+    
+    
+  }
 
   render() {
     return(
@@ -177,6 +216,7 @@ export default class App extends Component{
                       dataTableBtnAction={this.dataTableBtnAction}
                       dataTableOnChange={this.dataTableOnChange}
                       dataTableData={this.state.apiData}
+                      dataTableOnChangeInput={this.dataTableOnChangeInput}
       />
     )
   }

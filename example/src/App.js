@@ -44,24 +44,7 @@ export default class App extends Component{
                   'className': 'btn btn-outline-success btn-sm'
                 }
               ],
-              'fa_icon':[
-                {
-                  'show': true,
-                  'className': 'fa fa-pencil-square',
-                  'position': 'before'
-                }
-              ],
-              'input': [
-                {
-                  'show': true,
-                  'name': 'cell',
-                  'id': 'cell',
-                  'input_type': 'text',
-                  'className': '',
-                  'defaultValue': 'Hello',
-                  
-                }
-              ]
+              
           },
           { 'column_properties': {
             'name': 'name',
@@ -94,6 +77,16 @@ export default class App extends Component{
             {
               'show': true,
               'className': 'fa fa-pencil-square',
+              'position': 'before',
+              'extra': 
+              {
+                'depend_from_this_field': 'cell',
+                'conditional': 'boolean'
+              }
+            },
+            {
+              'show': true,
+              'className': 'fa fa-free-code-camp',
               'position': 'before'
             }
           ],
@@ -138,14 +131,25 @@ export default class App extends Component{
       ],
       'fa_icon':[
         {
-          'show': true,
+          'show': false,
           'className': 'fa fa-address-book',
           'position': 'before'
         },
         {
-          'show': true,
+          'show': false,
           'className': 'fa fa-pencil-square',
-          'position': 'before'
+          'position': 'before',
+          'extra': 
+              {
+                'depend_from_this_field': 'age',
+                'conditional': 'not_equals',
+                'value':
+                {
+                  'fromDB': false,
+                  'value': null
+                }
+
+              }
         }
       ],
       'input': [
@@ -173,7 +177,9 @@ export default class App extends Component{
             'html_pdf_template': 'Emmanuel Shekinah 1',
             'id': 'Emmanuel Shekinah 1',
             'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
+            'updated_at': 'hhhh',
+            'cell': true,
+            'age': 4
 
           },
           {
@@ -183,7 +189,9 @@ export default class App extends Component{
             'html_pdf_template': 'Emmanuel Shekinah 1',
             'id': 'Emmanuel Shekinah 1',
             'name': 'hhhdgddg',
-            'updated_at': 'hhhh'
+            'updated_at': 'hhhh',
+            'cell': true,
+            'age': null
 
           }
 

@@ -30,7 +30,7 @@ export default class ReactDataTable extends Component {
   }
 
   componentDidMount(){
-    console.log('props: ', this.props.dataTablesOptions)
+   
     this.setState({
       columns: this.props.dataTablesOptions.colums,
       apiData: this.props.dataTableData.data,
@@ -68,7 +68,7 @@ export default class ReactDataTable extends Component {
     })
   }
   search(e){
-    console.log(e.target.value)
+    
     this.setState({
       searchInput: e.target.value
     }, ()=>{
@@ -76,10 +76,10 @@ export default class ReactDataTable extends Component {
     })
   }
   onAction(e){
-    console.log('You have clicked record no: ')
+   
   }
   buttons =(e)=>{
-    console.log('Functions ',e);
+    
     
   }
   render(){
@@ -104,7 +104,7 @@ export default class ReactDataTable extends Component {
                             <th width={item.column_properties.width} scope="col" key={index}>
                               {item.column_properties.title}&nbsp;&nbsp;
                               <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
-                                 <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
+                                 {/* <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i> */}
                               </a>
                             </th>
                           )
@@ -129,10 +129,10 @@ export default class ReactDataTable extends Component {
                 {this.state.columns.map((cols, count) => {
                        
                   for (var i = 0; i < Object.keys(item).length; i++) {
-                    console.log('Data Table objects: ',Object.keys(item)[i]);
+                   
                         
                     if (cols.column_properties.name === Object.keys(item)[i]) {
-                       console.log('Test Array: ', cols.fa_icon);
+                       
                        
                         return (
                                   <td key={index+i}>
@@ -149,10 +149,9 @@ export default class ReactDataTable extends Component {
                                         
                                         
                                         if(fa.extra!==undefined){
-                                          console.log('Conditon: ', fa.extra);
-
+                                         
                                           if(fa.extra.conditional=='boolean'){//boalean
-                                            console.log('Bolean : ', fa.extra.conditional);
+                                           
                                             if(item[fa.extra.depend_from_this_field]===true){
                                               //return
                                               return(
@@ -167,9 +166,9 @@ export default class ReactDataTable extends Component {
                                           }
                                           
                                           // else if(fa.extra.conditional=='not_equals'){//not_equals
-                                          //   console.log('Not Equals To : ', fa.extra.conditional);
+                                          //   
                                           //   if(fa.extra.value.fromDB===true){//when is from db
-                                          //     console.log('from DataBase: ', item[fa.extra.depend_from_this_field]+'<=>'+fa.extra.value.value);
+                                          //   
                                           //     if(item[fa.extra.depend_from_this_field]!==item[fa.extra.value.value]){
                                           //       return(
                                           //         <i className={fa.className} 
@@ -179,7 +178,7 @@ export default class ReactDataTable extends Component {
                                           //         )
                                           //     }
                                           //   }else{//when is not from db
-                                          //     console.log('Not from DataBase: ', item[fa.extra.depend_from_this_field]+'<=>'+fa.extra.value.value);
+                                          //    
                                               
                                           //     if(item[fa.extra.depend_from_this_field]!==fa.extra.value.value){
                                           //       return(

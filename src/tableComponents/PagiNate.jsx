@@ -23,21 +23,22 @@ class PagiNate extends Component{
       skip: nextProps.skip,
       take: nextProps.take
     },()=>{
-      // console.clear()
-      console.log('paginate States: ',this.state)
+    
+     
       this.setState({
         pageNo: (this.state.skip/this.state.take)+1
       }, ()=>{
-        console.log('PageNo :', this.state.pageNo)})
+       
+      })
     })
   }
 
  
   render() {
     const space=<li className="page-item"  key={"space"}>
-    &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "7px", color: "#00164e"}}></i>&nbsp;
-    &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "7px", color: "#00164e"}}></i>&nbsp;
-    &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "7px", color: "#00164e"}}></i>&nbsp;
+    &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "6px", color: "#00164e"}}></i>&nbsp;
+    &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "6px", color: "#00164e"}}></i>&nbsp;
+    {/* &nbsp;<i class="fa fa-stop" aria-hidden="true" style={{fontSize: "7px", color: "#00164e"}}></i>&nbsp; */}
   </li>
     let showingUpTo;
     if(this.state.skip+this.state.take>=this.props.totalTableData){
@@ -182,7 +183,7 @@ class PagiNate extends Component{
                    
                      //Middle::Middle
                      if((index+1)>=4 && (index+1)<=(this.state.length-3)){
-                       
+                      
                       if(item===this.state.skip){
                         return (
                           <Fragment>
@@ -196,7 +197,7 @@ class PagiNate extends Component{
                           
                         )
                       }else{
-                        if((this.state.pageNo-1)===(index+1) || (this.state.pageNo+2)===(index+1)){
+                        if((this.state.pageNo-1)===(index+1) || (this.state.pageNo+1)===(index+1)){
                           return(
                             <Fragment>
                               <li className="page-item"  key={index}>

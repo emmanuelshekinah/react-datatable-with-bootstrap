@@ -33,7 +33,8 @@ export  default  class  App  extends  Component{
 	this.state = {
 		dataTablesOptions: {
 				'tableOptions': {
-				'table_title':  'Table Title'
+					'table_title': 'Hello',
+          			'className': 'table table-hover'
 				},
 				'colums': []
 				},

@@ -38,21 +38,27 @@ class TableFilter extends Component{
         <div className="col-4 text-right padding_right">
 
 
-          {/* <div className="input-group input-group-sm">
-            <div className="input-group-prepend">
-              <span className="input-group-text">Search</span></div>
-            <input type="text" className="form-control remove-outline" value={this.state.search} onChange={this.props.search.bind(this)}/>
-          </div> */}
+        {/* <div className="search-wrapper">
+            <div className="input-holder">
+                <input type="text" className="search-input" placeholder="Type to search" value={this.state.search} onChange={this.props.search.bind(this)}/>
+                    <button className="search-icon"><span></span></button>
+            </div>
+            <button className="close"></button>
+        </div> */}
+
 
                     <div className="input-group input-group-sm">
                         <div className="searchbar">
-                            <input type="text" className="search_input effect-1" value={this.state.search} onChange={this.props.search.bind(this)}/>
+                            <input type="text" className="search_input effect-1"  style={{color: "#00164E"}} value={this.state.search} onChange={this.props.search.bind(this)}/>
                           
-                            <a href="#" className="search_icon search-wrapper bg-light">
+                            <a href="#" className="search_icon search-wrapper bg-light"  style={{color: "#00164E"}}>
                                 <i className="search-icon bg-light" id="search_icon"><FontAwesomeIcon icon={faSearch} /></i>
                             </a>
                         </div>
                     </div>
+
+
+
         </div>
         <br />
         <br />

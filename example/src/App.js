@@ -1,199 +1,26 @@
 import React, {Component} from 'react'
 import  ReactDataTable from 'react-datatable-bootstrap'
+import json from './json.json'
 
 export default class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      dataTablesOptions: {
-        'tableOptions': {
-          'table_title': 'Hello'
-        },
-        'colums': [
-          { 'column_properties': {
-                'name': 'id',
-                'title': '#',
-                'width': '',
-                'allowSort': false
-              },
-              'text':[
-                {
-                  'name': 'active',
-                  'show': true,
-                  'className': ''
-                },
-                {
-                  'name': 'active',
-                  'show': true,
-                  'className': ''
-                }
-              ],
-              'button': [
-                {
-                  'actionType': 'preview',
-                  'show': true,
-                  'title': 'Agreement PDF 1',
-                  'passValue': 'id',
-                  'className': 'btn btn-outline-success btn-sm'
-                },
-                {
-                  'actionType': 'preview',
-                  'show': true,
-                  'title': 'Agreement PDF 2',
-                  'passValue': 'id',
-                  'className': 'btn btn-outline-success btn-sm'
-                }
-              ],
-              
-          },
-          { 'column_properties': {
-            'name': 'name',
-            'title': 'Scheme Name',
-            'width': '',
-            'allowSort': true
-          },
-          'text':[
-            {
-              'name': 'active',
-              'show': true,
-              'className': ''
-            },
-            {
-              'name': 'active',
-              'show': true,
-              'className': ''
-            }
-          ],
-          'button': [
-            {
-              'actionType': 'preview',
-              'show': false,
-              'title': 'Agreement PDF',
-              'passValue': 'id',
-              'className': 'btn btn-outline-success btn-sm'
-            }
-          ],
-          'fa_icon':[
-            {
-              'show': true,
-              'className': 'fa fa-pencil-square',
-              'position': 'before',
-              'extra': 
-              {
-                'depend_from_this_field': 'cell',
-                'conditional': 'boolean'
-              }
-            },
-            {
-              'show': true,
-              'className': 'fa fa-free-code-camp',
-              'position': 'before'
-            }
-          ],
-          'input': [
-            {
-              'show': true,
-              'name': 'cell',
-              'id': 'cell',
-              'input_type': 'checkbox',
-              'className': 'custom-control custom-checkbox',
-              'defaultChecked': true,
-              
-            }
-          ]
-      },
-      { 'column_properties': {
-        'name': 'active',
-        'title': 'Active',
-        'width': '10%',
-        'allowSort': true
-      },
-      'text':[
-        {
-          'name': 'active',
-          'show': true,
-          'className': ''
-        },
-        {
-          'name': 'active',
-          'show': true,
-          'className': ''
-        }
-      ],
-      'button': [
-        {
-          'actionType': 'preview',
-          'show': false,
-          'title': 'Agreement PDF',
-          'passValue': 'id',
-          'className': 'btn btn-outline-success btn-sm'
-        }
-      ],
-      'fa_icon':[
-        {
-          'show': false,
-          'className': 'fa fa-address-book',
-          'position': 'before'
-        },
-        {
-          'show': false,
-          'className': 'fa fa-pencil-square',
-          'position': 'before',
-          'extra': 
-              {
-                'depend_from_this_field': 'age',
-                'conditional': 'not_equals',
-                'value':
-                {
-                  'fromDB': false,
-                  'value': null
-                }
-
-              }
-        }
-      ],
-      'input': [
-        {
-          'show': true,
-          'name': 'cell',
-          'id': 'cell',
-          'input_type': 'text',
-          'defaultValue': 'Hello',
-          
-        }
-      ]
-  }
-      ]
-
-      },
+      dataTablesOptions: json,
       apiData: {
-        'pageNate': [0,10],
-        'totalTableData': 12,
+        'pageNate': [0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200],
+        'totalTableData': 51,
         'data': [
-          {
-            'active':1,
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh',
-            'cell': true,
-            'age': 4
-
-          },
-          {
-            'active':'Emmanuel Shekinah',
-            'created_at': '1es.shekinah@gmail.com',
-            'cycle_id': '0728999919',
-            'html_pdf_template': 'Emmanuel Shekinah 1',
-            'id': 'Emmanuel Shekinah 1',
-            'name': 'hhhdgddg',
-            'updated_at': 'hhhh',
-            'cell': true,
-            'age': null
-
-          }
+          {'id':1,'name': 'Emmanuel Shekinah'},
+          {'id':2,'name': 'Emmanuel Shekinah'},
+          {'id':3,'name': 'Emmanuel Shekinah'},
+          {'id':4,'name': 'Emmanuel Shekinah'},
+          {'id':5,'name': 'Emmanuel Shekinah'},
+          {'id':6,'name': 'Emmanuel Shekinah'},
+          {'id':7,'name': 'Emmanuel Shekinah'},
+          {'id':8,'name': 'Emmanuel Shekinah'},
+          {'id':9,'name': 'Emmanuel Shekinah'},
+          {'id':10,'name': 'Emmanuel Shekinah'},
 
         ]
       }

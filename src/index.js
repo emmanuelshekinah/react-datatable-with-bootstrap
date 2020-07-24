@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import TableFilter from "./tableComponents/TableFilter";
 import PagiNate from "./tableComponents/PagiNate";
+import './style.css'
 
 
 export default class ReactDataTable extends Component {
@@ -92,7 +93,8 @@ export default class ReactDataTable extends Component {
                      tableOptions={this.props.dataTablesOptions.tableOptions}
                      toChild={this.state}
         />
-        <table className="table table-hover">
+        {/* <table className="mb-0 table table-sm table-hover"> */}
+        <table className={this.props.dataTablesOptions.tableOptions.className}>
           <thead>
           <tr>
             {this.state.columns.map((item, index) => {
@@ -100,9 +102,9 @@ export default class ReactDataTable extends Component {
                 if (item.column_properties.allowSort === true) {//allow sort order
                   return (
                             <th width={item.column_properties.width} scope="col" key={index}>
-                              {item.column_properties.title}
+                              {item.column_properties.title}&nbsp;&nbsp;
                               <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
-                                 &nbsp;<i className="fa fa-sort " aria-hidden="true"></i>
+                                 <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
                               </a>
                             </th>
                           )
@@ -158,7 +160,7 @@ export default class ReactDataTable extends Component {
                                                   <i className={fa.className} 
                                                   onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)} 
                                                   aria-hidden="true" style={{cursor: 'pointer'}}
-                                                  ></i>&nbsp;
+                                                  ></i>
                                                 </Fragment>
                                                 )
                                             }
@@ -198,7 +200,7 @@ export default class ReactDataTable extends Component {
                                               <i className={fa.className} 
                                               onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)} 
                                               aria-hidden="true" style={{cursor: 'pointer'}}
-                                              ></i>&nbsp;
+                                              ></i>
                                             </Fragment>
                                             )
                                         }
@@ -218,7 +220,7 @@ export default class ReactDataTable extends Component {
                                       if(txt.show===true){
                                         return(
                                             <Fragment>
-                                              <span className={txt.className}>{item[txt.name]}</span>&nbsp;
+                                              <span className={txt.className}>{item[txt.name]}&nbsp;</span>
                                             </Fragment>
                                          
                                         )
@@ -231,24 +233,48 @@ export default class ReactDataTable extends Component {
 
                                     {/* Buttons */}
                                     {cols.button!==undefined && (
-                                      <Fragment>
-                                        {cols.button.map((btn, i)=>{
-                                      return (
-                                        <Fragment>{btn.show===true && (
-                                             
-                                                <button type="button" 
-                                                  event={item} 
-                                                  id={item.id} 
-                                                  name={cols.column_properties.name}
-                                                  onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
-                                                  className={btn.className}>
-                                                  {btn.title}
-                                              </button>
-                                             
-                                          )}&nbsp;</Fragment>
-                                      )
-                                    })}
-                                      </Fragment>
+                                     
+                                       <Fragment>
+                                          {cols.button.map((btn, i)=>{
+
+                                            if(btn.show===true){
+
+                                              if(btn.extra!==undefined){
+                                                if(item[btn.extra.depend_from_this_field]===true){
+                                                  //return
+                                                  return(
+                                                    <Fragment>&nbsp;
+                                                      <button type="button" 
+                                                      event={item} 
+                                                      id={item.id} 
+                                                      name={cols.column_properties.name}
+                                                      onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                                      className={btn.className}>
+                                                      {btn.title}
+                                                  </button>
+                                                     
+                                                    </Fragment>
+                                                    )
+                                                }
+                                              }else{
+                                                return (
+                                                  <Fragment>&nbsp;
+                                                  <button type="button" 
+                                                      event={item} 
+                                                      id={item.id} 
+                                                      name={cols.column_properties.name}
+                                                      onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                                      className={btn.className}>
+                                                      {btn.title}
+                                                  </button>
+                                                  </Fragment>
+                                                  )
+                                                }
+                                            }
+
+                                            })}
+                                       </Fragment>
+                                     
                                     )}
                                     {/* End--Buttons */}
                                    
@@ -267,7 +293,7 @@ export default class ReactDataTable extends Component {
                                                         defaultValue={input.defaultValue} />
                                                   </div>
                                                     
-                                                )}&nbsp;</Fragment>
+                                                )}</Fragment>
                                             )
                                             }
                                             else if(input.input_type==='checkbox'){
@@ -279,7 +305,7 @@ export default class ReactDataTable extends Component {
                                                       defaultChecked={item.defaultChecked} />
                                                 
                                                     
-                                                )}&nbsp;</Fragment>
+                                                )}</Fragment>
                                             )
                                             }else if(input.input_type==='textarea'){
 

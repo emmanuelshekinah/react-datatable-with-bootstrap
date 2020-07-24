@@ -1,0 +1,41 @@
+{
+        "tableOptions": {
+          "table_title": "Hello",
+          "className": "table table-hover"
+        },
+        "colums": [
+          {"column_properties":
+            {
+                "name": "id",
+                "title": "#",
+                "width": "id",
+                "allowSort": false
+              },
+              "text":[
+
+                {
+                  "name": "id",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        },
+        {"column_properties":
+            {
+                "name": "name",
+                "title": "#",
+                "width": "",
+                "allowSort": false
+              },
+              "text":[
+
+                {
+                  "name": "name",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        }
+      ]
+
+      }

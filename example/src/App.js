@@ -11,10 +11,10 @@ export default class App extends Component{
         'pageNate': [0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200],
         'totalTableData': 51,
         'data': [
-          {'id':1,'name': 'Emmanuel Shekinah'},
+          {'id':1,'name': 'Emmanuel Shekinah', 'defaultChecked': false},
           {'id':2,'name': 'Emmanuel Shekinah'},
           {'id':3,'name': 'Emmanuel Shekinah'},
-          {'id':4,'name': 'Emmanuel Shekinah'},
+          {'id':4,'name': 'Emmanuel Shekinah', 'defaultChecked': true},
           {'id':5,'name': 'Emmanuel Shekinah'},
           {'id':6,'name': 'Emmanuel Shekinah'},
           {'id':7,'name': 'Emmanuel Shekinah'},

@@ -306,8 +306,17 @@ export default class ReactDataTable extends Component {
                                                     
                                                 )}</Fragment>
                                             )
-                                            }else if(input.input_type==='textarea'){
-
+                                            }else if(input.input_type==='radio'){ 
+                                              return (
+                                                <Fragment>{input.show===true && (
+                                                      
+                                                        <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                                        onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                        defaultChecked={item.defaultChecked} />
+                                                  
+                                                      
+                                                  )}</Fragment>
+                                              )
                                             }
 
                                             })}

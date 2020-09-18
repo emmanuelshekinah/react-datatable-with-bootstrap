@@ -11,14 +11,16 @@
                 "width": "id",
                 "allowSort": false
               },
-              "text":[
-
+              "input": [
                 {
-                  "name": "id",
-                  "show": true,
-                  "className": ""
+                    "show": true,
+                    "name": "id",
+                    "id": "id",
+                    "input_type": "radio",
+                    "className": "custom-control custom-checkbox",
+                    "defaultChecked": false
                 }
-              ]
+            ]
         },
         {"column_properties":
             {

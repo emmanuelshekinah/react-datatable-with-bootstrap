@@ -98,7 +98,8 @@ class PagiNate extends Component{
                             href="#"
                           >{index+1}</a>
                       </li>
-                      {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()}
+                      {(index+1)===5 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                      {/* {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()} */}
                         </Fragment>
                       )
                     }else{
@@ -110,7 +111,8 @@ class PagiNate extends Component{
                               href="#"
                               onClick={this.props.paginateMethod.bind(this,item)}>{index+1}</a>
                         </li>
-                        {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()}
+                        {(index+1)===5 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                        {/* {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()} */}
                           </Fragment>
                          
                         )
@@ -159,7 +161,8 @@ class PagiNate extends Component{
                           style={{backgroundColor: "#00164E", border: "0px #00164E"}}
                             href="#"
                           >{index+1}</a>
-                          {(()=>{if((index+1)===3){return(<Fragment>{space}</Fragment>)}})()}
+                          {(index+1)===3 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                          {/* {(()=>{if((index+1)===3){return(<Fragment>{space}</Fragment>)}})()} */}
                       </li>
                         </Fragment>
                         
@@ -173,7 +176,8 @@ class PagiNate extends Component{
                               href="#"
                               onClick={this.props.paginateMethod.bind(this,item)}>{index+1}</a>
                         </li>
-                        {(()=>{if((index+1)===3){return(<Fragment>{space}</Fragment>)}})()}
+                        {(index+1)===3 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                        {/* {(()=>{if((index+1)===3){return(<Fragment>{space}</Fragment>)}})()} */}
                           </Fragment>
                           
                         )
@@ -221,7 +225,8 @@ class PagiNate extends Component{
                       if(item===this.state.skip){
                         return (
                           <Fragment>
-                            {(()=>{if((index+1)===(this.state.length-2)){return(<Fragment>{space}</Fragment>)}})()}
+                            {(index+1)===(this.state.length-2) && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                            {/* {(()=>{if((index+1)===(this.state.length-2)){return(<Fragment>{space}</Fragment>)}})()} */}
                             <li className="page-item active" key={index}>
                           <a className="page-link"
                           style={{backgroundColor: "#00164E", border: "0px #00164E"}}
@@ -236,7 +241,8 @@ class PagiNate extends Component{
                         // if((this.state.pageNo-1)===(index+1) || (this.state.pageNo+2)===(index+1)){
                           return(
                             <Fragment>
-                              {(()=>{if((index+1)===(this.state.length-2)){return(<Fragment>{space}</Fragment>)}})()}
+                              {(index+1)===(this.state.length-2) && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                              {/* {(()=>{if((index+1)===(this.state.length-2)){return(<Fragment>{space}</Fragment>)}})()} */}
                               <li className="page-item"  key={index}>
                             <a className="page-link"
                             style={{color: "#00164E"}}
@@ -264,7 +270,8 @@ class PagiNate extends Component{
                             href="#"
                           >{index+1}</a>
                       </li>
-                      {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()}
+                      {(index+1)===5 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                      {/* {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()} */}
                         </Fragment>
                         
                       )
@@ -277,7 +284,8 @@ class PagiNate extends Component{
                               href="#"
                               onClick={this.props.paginateMethod.bind(this,item)}>{index+1}</a>
                         </li>
-                        {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()}
+                        {(index+1)===5 && (<li className="page-item page-link" key={index+"a"}>...</li>)}
+                        {/* {(()=>{if((index+1)===5){return(<Fragment>{space}</Fragment>)}})()} */}
                           </Fragment>
                           
                         )

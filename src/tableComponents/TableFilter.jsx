@@ -20,8 +20,8 @@ class TableFilter extends Component{
 
   render() {
     return (
-      <div className="row">
-        <div className="col-4">
+      <div className="row d-flex h-100">
+        <div className="col-4 justify-content-center align-self-center">
           <select className="form-control-sm form-control"
                   onChange={this.props.changeRecordsPerPage.bind(this)}
           >
@@ -31,11 +31,11 @@ class TableFilter extends Component{
             <option value={100}>100 records per page</option>
           </select>
         </div>
-        <div className="col-4 text-center">
+        {/* <div className="col-4 text-center">
           <h5><b>{this.props.tableOptions.table_title}</b></h5>
           
-        </div>
-        <div className="col-4 text-right padding_right">
+        </div> */}
+        <div className="col-8 text-right padding_right justify-content-center align-self-center">
 
 
         {/* <div className="search-wrapper">
@@ -46,8 +46,17 @@ class TableFilter extends Component{
             <button className="close"></button>
         </div> */}
 
+                                  <div className={"text-right pull-right search-wrapper "+this.state.is_search}>
+                                        <div className="input-holder">
+                                            <input type="text" className="search-input" placeholder="Type to search" value={this.state.search} onChange={this.props.search.bind(this)}></input>
+                                                <button className="search-icon" onClick={()=>{this.setState({is_search: 'active'})}}><span></span></button>
+                                        </div>
+                                        <button className="close" onClick={()=>{this.setState({is_search: this.state.is_search==='active'?'':'active'})}}></button>
+                                        <br />
+                                    </div>
+                                    
 
-                    <div className="input-group input-group-sm">
+                    {/* <div className="input-group input-group-sm">
                         <div className="searchbar">
                             <input type="text" className="search_input effect-1"  style={{color: "#00164E"}} value={this.state.search} onChange={this.props.search.bind(this)}/>
                           
@@ -55,7 +64,7 @@ class TableFilter extends Component{
                                 <i className="search-icon bg-light" id="search_icon"><FontAwesomeIcon icon={faSearch} /></i>
                             </a>
                         </div>
-                    </div>
+                    </div> */}
 
 
 

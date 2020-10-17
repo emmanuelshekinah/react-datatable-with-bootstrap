@@ -9,7 +9,7 @@
                 "name": "id",
                 "title": "#",
                 "width": "id",
-                "allowSort": false
+                "allowSort": true
               },
               "input": [
                 {

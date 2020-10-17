@@ -29,6 +29,7 @@ export default class ReactDataTable extends Component {
     this.onAction = this.onAction.bind(this)
     //--end Datatable
     this.changeOrder = this.changeOrder.bind(this)
+    this.clearSearch = this.clearSearch.bind(this)
   }
 
   componentDidMount(){
@@ -81,6 +82,13 @@ export default class ReactDataTable extends Component {
       this.props.dataTableOnChange(this.state)
     })
   }
+  clearSearch(){
+    this.setState({
+      searchInput: ""
+    }, ()=>{
+      this.props.dataTableOnChange(this.state)
+    })
+  }
   onAction(e){
 
   }
@@ -93,6 +101,7 @@ export default class ReactDataTable extends Component {
       <div>
         <TableFilter onAction={this.onAction}
                      search={this.search}
+                     clearSearch={this.clearSearch}
                      searchInput={this.state.searchInput}
                      changeRecordsPerPage={this.changeRecordsPerPage}
                      filterId={this.state.filterId}

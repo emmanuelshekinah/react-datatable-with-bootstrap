@@ -18,8 +18,8 @@ class TableFilter extends Component{
     })
   }
   onClose(e){
-      alert("Hello world ")
-    this.setState({search:"",is_search: this.state.is_search==='active'?'':'active'})
+    //alert("Hello world ")
+    this.setState({search:"",is_search: this.state.is_search==='active'?'':'active'}, ()=> {this.props.clearSearch()})
   }
   render() {
     return (
@@ -53,6 +53,7 @@ class TableFilter extends Component{
                                         <div className="input-holder">
                                             <input type="text" className="search-input" placeholder="Type to search" value={this.state.search} onChange={this.props.search.bind(this)}></input>
                                                 <button className="search-icon" onClick={()=>{this.setState({is_search: 'active'})}}><span></span></button>
+                                                {/*<button className="search-icon" onClick={this.onClose.bind(this)}><span></span></button>*/}
                                         </div>
                                         <button className="close" onClick={this.onClose.bind(this)}></button>
                                         <br />

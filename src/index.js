@@ -115,21 +115,32 @@ export default class ReactDataTable extends Component {
             {this.state.columns.map((item, index) => {
 
                 if (item.column_properties.allowSort === true) {//allow sort order
-                  return (
-                            <th width={item.column_properties.width} scope="col" key={index}>
-                              {item.column_properties.title}&nbsp;&nbsp;
-                              <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
-                                  <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
-                              </a>
-                            </th>
-                          )
-                } else {
-                  return (
-                            <th width={item.column_properties.width} scope="col" key={index}>
-                              {item.column_properties.title}
-                            </th>
-                          )
+
+                    return (
+                      <th width={item.column_properties.width} scope="col"
+                          className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                          key={index}>
+                        {item.column_properties.title}&nbsp;&nbsp;
+                        <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
+                          <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
+                        </a>
+                      </th>
+                    )
+
                 }
+
+                else {
+                    return (
+                      <th width={item.column_properties.width} scope="col"
+                          className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                          key={index}>
+                        {item.column_properties.title}
+                      </th>
+                    )
+                  }
+
+
+
 
 
             })}
@@ -150,7 +161,9 @@ export default class ReactDataTable extends Component {
 
 
                         return (
-                                  <td key={index+i}>
+                                  <td
+                                    className={cols.column_properties.freeze ? "freeze_col" : ""}
+                                    key={index+i}>
 
 
 

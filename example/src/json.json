@@ -27,7 +27,76 @@
                 "name": "name",
                 "title": "#",
                 "width": "",
-                "allowSort": false
+                "allowSort": false,
+                "freeze": true
+              },
+              "text":[
+
+                {
+                  "name": "name",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        },
+        {"column_properties":
+            {
+                "name": "name",
+                "title": "#",
+                "width": "",
+                "allowSort": false,
+                "freeze": false
+              },
+              "text":[
+
+                {
+                  "name": "name",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        },
+        {"column_properties":
+            {
+                "name": "name",
+                "title": "#",
+                "width": "",
+                "allowSort": false,
+                "freeze": false
+              },
+              "text":[
+
+                {
+                  "name": "name",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        },
+        {"column_properties":
+            {
+                "name": "name",
+                "title": "#",
+                "width": "",
+                "allowSort": false,
+                "freeze": false
+              },
+              "text":[
+
+                {
+                  "name": "name",
+                  "show": true,
+                  "className": ""
+                }
+              ]
+        },
+        {"column_properties":
+            {
+                "name": "name",
+                "title": "#",
+                "width": "",
+                "allowSort": false,
+                "freeze": false
               },
               "text":[
 

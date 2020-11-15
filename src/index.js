@@ -109,269 +109,273 @@ export default class ReactDataTable extends Component {
                      toChild={this.state}
         />
         {/* <table className="mb-0 table table-sm table-hover"> */}
-        <table className={this.props.dataTablesOptions.tableOptions.className}>
-          <thead>
-          <tr>
-            {this.state.columns.map((item, index) => {
+        <div className={this.props.dataTablesOptions.tableOptions.tableContainerClassName}>
+
+          <table className={this.props.dataTablesOptions.tableOptions.className}>
+            <thead>
+            <tr>
+              {this.state.columns.map((item, index) => {
 
                 if (item.column_properties.allowSort === true) {//allow sort order
 
-                    return (
-                      <th width={item.column_properties.width} scope="col"
-                          className={item.column_properties.freeze === true ? "freeze_col" : ""}
-                          key={index}>
-                        {item.column_properties.title}&nbsp;&nbsp;
-                        <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
-                          <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
-                        </a>
-                      </th>
-                    )
+                  return (
+                    <th width={item.column_properties.width} scope="col"
+                        className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                        key={index}>
+                      {item.column_properties.title}&nbsp;&nbsp;
+                      <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
+                        <i className="fa fa-sort " aria-hidden="true" style={{color: "#00164E"}}></i>
+                      </a>
+                    </th>
+                  )
 
                 }
 
                 else {
-                    return (
-                      <th width={item.column_properties.width} scope="col"
-                          className={item.column_properties.freeze === true ? "freeze_col" : ""}
-                          key={index}>
-                        {item.column_properties.title}
-                      </th>
-                    )
-                  }
+                  return (
+                    <th width={item.column_properties.width} scope="col"
+                        className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                        key={index}>
+                      {item.column_properties.title}
+                    </th>
+                  )
+                }
 
 
 
 
 
-            })}
-          </tr>
-          </thead>
-          <tbody>
+              })}
+            </tr>
+            </thead>
+            <tbody>
 
-          {this.state.apiData.map((item, index) => {
-            var faCount = 0;
-            return (
-              <tr key={index}>
-                {this.state.columns.map((cols, count) => {
+            {this.state.apiData.map((item, index) => {
+              var faCount = 0;
+              return (
+                <tr key={index}>
+                  {this.state.columns.map((cols, count) => {
 
-                  for (var i = 0; i < Object.keys(item).length; i++) {
+                    for (var i = 0; i < Object.keys(item).length; i++) {
 
 
-                    if (cols.column_properties.name === Object.keys(item)[i]) {
+                      if (cols.column_properties.name === Object.keys(item)[i]) {
 
 
                         return (
-                                  <td
-                                    className={cols.column_properties.freeze ? "freeze_col" : ""}
-                                    key={index+i}>
+                          <td
+                            className={cols.column_properties.freeze ? "freeze_col" : ""}
+                            key={index+i}
+                          >
 
 
 
-                                   {/* Fa Icons */}
-                                   {cols.fa_icon!==undefined && (
-                                      <Fragment>
-                                         {cols.fa_icon.map((fa, fai)=>{
-                                      if(fa.show===true){
-                                        faCount++;
+                            {/* Fa Icons */}
+                            {cols.fa_icon!==undefined && (
+                              <Fragment>
+                                {cols.fa_icon.map((fa, fai)=>{
+                                  if(fa.show===true){
+                                    faCount++;
 
 
 
-                                        if(fa.extra!==undefined){
+                                    if(fa.extra!==undefined){
 
-                                          if(fa.extra.conditional=='boolean'){//boalean
+                                      if(fa.extra.conditional=='boolean'){//boalean
 
-                                            if(item[fa.extra.depend_from_this_field]===true){
-                                              //return
-                                              return(
-                                                <Fragment>
-                                                  <i className={fa.className}
-                                                  onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
-                                                  aria-hidden="true" style={{cursor: 'pointer'}}
-                                                  ></i>
-                                                </Fragment>
-                                                )
-                                            }
-                                          }
-
-                                          // else if(fa.extra.conditional=='not_equals'){//not_equals
-                                          //
-                                          //   if(fa.extra.value.fromDB===true){//when is from db
-                                          //
-                                          //     if(item[fa.extra.depend_from_this_field]!==item[fa.extra.value.value]){
-                                          //       return(
-                                          //         <i className={fa.className}
-                                          //           onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
-                                          //           aria-hidden="true" style={{cursor: 'pointer'}}
-                                          //           ></i>
-                                          //         )
-                                          //     }
-                                          //   }else{//when is not from db
-                                          //
-
-                                          //     if(item[fa.extra.depend_from_this_field]!==fa.extra.value.value){
-                                          //       return(
-                                          //         <i className={fa.className}
-                                          //           onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
-                                          //           aria-hidden="true" style={{cursor: 'pointer'}}
-                                          //           ></i>
-                                          //         )
-                                          //     }
-                                          //   }
-                                          // }
-
-
-
-                                        }else{
+                                        if(item[fa.extra.depend_from_this_field]===true){
+                                          //return
                                           return(
                                             <Fragment>
                                               <i className={fa.className}
-                                              onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
-                                              aria-hidden="true" style={{cursor: 'pointer'}}
+                                                 onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
+                                                 aria-hidden="true" style={{cursor: 'pointer'}}
                                               ></i>
                                             </Fragment>
-                                            )
+                                          )
                                         }
-
                                       }
-                                    })}
-                                      </Fragment>
-                                   )}
 
-                                    {/* End--Fa Icons */}
+                                      // else if(fa.extra.conditional=='not_equals'){//not_equals
+                                      //
+                                      //   if(fa.extra.value.fromDB===true){//when is from db
+                                      //
+                                      //     if(item[fa.extra.depend_from_this_field]!==item[fa.extra.value.value]){
+                                      //       return(
+                                      //         <i className={fa.className}
+                                      //           onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
+                                      //           aria-hidden="true" style={{cursor: 'pointer'}}
+                                      //           ></i>
+                                      //         )
+                                      //     }
+                                      //   }else{//when is not from db
+                                      //
+
+                                      //     if(item[fa.extra.depend_from_this_field]!==fa.extra.value.value){
+                                      //       return(
+                                      //         <i className={fa.className}
+                                      //           onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
+                                      //           aria-hidden="true" style={{cursor: 'pointer'}}
+                                      //           ></i>
+                                      //         )
+                                      //     }
+                                      //   }
+                                      // }
 
 
-                                    {/* Text */}
-                                    {cols.text!==undefined && (
+
+                                    }else{
+                                      return(
+                                        <Fragment>
+                                          <i className={fa.className}
+                                             onClick={this.props.dataTableBtnAction.bind(this, item[fa.passValue], fa.actionType)}
+                                             aria-hidden="true" style={{cursor: 'pointer'}}
+                                          ></i>
+                                        </Fragment>
+                                      )
+                                    }
+
+                                  }
+                                })}
+                              </Fragment>
+                            )}
+
+                            {/* End--Fa Icons */}
+
+
+                            {/* Text */}
+                            {cols.text!==undefined && (
+                              <Fragment>
+                                {cols.text.map((txt, txi)=>{
+                                  if(txt.show===true){
+                                    return(
                                       <Fragment>
-                                         {cols.text.map((txt, txi)=>{
-                                      if(txt.show===true){
-                                        return(
-                                            <Fragment>
-                                              <span className={txt.className}>{item[txt.name]}&nbsp;</span>
-                                            </Fragment>
+                                        <span className={txt.className}>{item[txt.name]}&nbsp;</span>
+                                      </Fragment>
 
+                                    )
+                                  }
+                                })}
+                              </Fragment>
+                            )}
+                            {/* End--Text */}
+
+
+                            {/* Buttons */}
+                            {cols.button!==undefined && (
+
+                              <Fragment>
+                                {cols.button.map((btn, i)=>{
+
+                                  if(btn.show===true){
+
+                                    if(btn.extra!==undefined){
+                                      if(item[btn.extra.depend_from_this_field]===true){
+                                        //return
+                                        return(
+                                          <Fragment>&nbsp;
+                                            <button type="button"
+                                                    event={item}
+                                                    id={item.id}
+                                                    name={cols.column_properties.name}
+                                                    onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                                    className={btn.className}>
+                                              <i className={btn.icon_class}> </i>
+                                              {btn.title}
+                                            </button>
+
+                                          </Fragment>
                                         )
                                       }
-                                    })}
-                                      </Fragment>
-                                    )}
-                                   {/* End--Text */}
+                                    }else{
+                                      return (
+                                        <Fragment>&nbsp;
+                                          <button type="button"
+                                                  event={item}
+                                                  id={item.id}
+                                                  name={cols.column_properties.name}
+                                                  onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
+                                                  className={btn.className}>
+                                            <i className={btn.icon_class}> </i>
+                                            {btn.title}
+                                          </button>
+                                        </Fragment>
+                                      )
+                                    }
+                                  }
+
+                                })}
+                              </Fragment>
+
+                            )}
+                            {/* End--Buttons */}
+
+                            {/* Input */}
+                            {cols.input!==undefined && (
+                              <Fragment>
+                                {cols.input.map((input, data)=>{
+
+                                  if(input.input_type==='text'){
+                                    return (
+                                      <Fragment>{input.show===true && (
+
+                                        <div className="input-group">
+                                          <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                                 onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                 defaultValue={input.defaultValue} />
+                                        </div>
+
+                                      )}</Fragment>
+                                    )
+                                  }
+                                  else if(input.input_type==='checkbox'){
+                                    return (
+                                      <Fragment>{input.show===true && (
+
+                                        <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                               onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                               defaultChecked={item.defaultChecked} />
 
 
-                                    {/* Buttons */}
-                                    {cols.button!==undefined && (
+                                      )}</Fragment>
+                                    )
+                                  }else if(input.input_type==='radio'){
+                                    return (
+                                      <Fragment>{input.show===true && (
 
-                                       <Fragment>
-                                          {cols.button.map((btn, i)=>{
-
-                                            if(btn.show===true){
-
-                                              if(btn.extra!==undefined){
-                                                if(item[btn.extra.depend_from_this_field]===true){
-                                                  //return
-                                                  return(
-                                                    <Fragment>&nbsp;
-                                                      <button type="button"
-                                                      event={item}
-                                                      id={item.id}
-                                                      name={cols.column_properties.name}
-                                                      onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
-                                                      className={btn.className}>
-                                                        <i className={btn.icon_class}> </i>
-                                                      {btn.title}
-                                                  </button>
-
-                                                    </Fragment>
-                                                    )
-                                                }
-                                              }else{
-                                                return (
-                                                  <Fragment>&nbsp;
-                                                  <button type="button"
-                                                      event={item}
-                                                      id={item.id}
-                                                      name={cols.column_properties.name}
-                                                      onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
-                                                      className={btn.className}>
-                                                      <i className={btn.icon_class}> </i>
-                                                      {btn.title}
-                                                  </button>
-                                                  </Fragment>
-                                                  )
-                                                }
-                                            }
-
-                                            })}
-                                       </Fragment>
-
-                                    )}
-                                    {/* End--Buttons */}
-
-                                     {/* Input */}
-                                     {cols.input!==undefined && (
-                                       <Fragment>
-                                         {cols.input.map((input, data)=>{
-
-                                            if(input.input_type==='text'){
-                                            return (
-                                              <Fragment>{input.show===true && (
-
-                                                    <div className="input-group">
-                                                      <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
-                                                      onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                        defaultValue={input.defaultValue} />
-                                                  </div>
-
-                                                )}</Fragment>
-                                            )
-                                            }
-                                            else if(input.input_type==='checkbox'){
-                                            return (
-                                              <Fragment>{input.show===true && (
-
-                                                      <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
-                                                      onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                      defaultChecked={item.defaultChecked} />
+                                        <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                               onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                               defaultChecked={item.defaultChecked} />
 
 
-                                                )}</Fragment>
-                                            )
-                                            }else if(input.input_type==='radio'){
-                                              return (
-                                                <Fragment>{input.show===true && (
+                                      )}</Fragment>
+                                    )
+                                  }
 
-                                                        <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
-                                                        onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                        defaultChecked={item.defaultChecked} />
-
-
-                                                  )}</Fragment>
-                                              )
-                                            }
-
-                                            })}
-                                       </Fragment>
-                                     )}
-                                    {/* End--Input */}
+                                })}
+                              </Fragment>
+                            )}
+                            {/* End--Input */}
 
 
-                                  </td>
-                                )
+                          </td>
+                        )
 
 
 
 
+                      }
                     }
-                  }
 
-                })}
+                  })}
 
-              </tr>
-            )
-          })}
+                </tr>
+              )
+            })}
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
         <PagiNate paginateMethod={this.paginate}
                   pageNate={this.state.pageNate}
                   skip={this.state.skip}

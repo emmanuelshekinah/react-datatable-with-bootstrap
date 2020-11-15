@@ -1,7 +1,8 @@
 {
         "tableOptions": {
           "table_title": "Hello",
-          "className": "table table-hover"
+          "className": "table table-hover",
+          "tableContainerClassName": "table-responsive"
         },
         "colums": [
           {"column_properties":

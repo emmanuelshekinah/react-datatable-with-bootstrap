@@ -292,6 +292,7 @@ export default class ReactDataTable extends Component {
                                                       name={cols.column_properties.name}
                                                       onClick={this.props.dataTableBtnAction.bind(this, item[btn.passValue], btn.actionType)}
                                                       className={btn.className}>
+                                                      <i className={btn.icon_class}> </i>
                                                       {btn.title}
                                                   </button>
                                                   </Fragment>

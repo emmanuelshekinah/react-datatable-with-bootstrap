@@ -9,7 +9,8 @@
                 "name": "id",
                 "title": "#",
                 "width": "id",
-                "allowSort": true
+                "allowSort": true,
+              "freeze": true
               },
               "input": [
                 {
@@ -22,6 +23,29 @@
                 }
             ]
         },
+
+          {
+            "column_properties":
+            {
+              "name": "name",
+              "title": "Action",
+              "width": "",
+              "allowSort": false,
+              "freeze": true
+            },
+            "button":
+            [
+              {
+                "actionType":  "edit",
+                "show":  true,
+                "title":  "",
+                "passValue":  "id",
+                "icon_class":  "fa fa-exclamation-triangle",
+                "className":  "btn-wide btn-shadow btn btn-outline-primary btn-sm"
+
+              }
+            ]
+          },
         {"column_properties":
             {
                 "name": "name",

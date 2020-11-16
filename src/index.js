@@ -120,7 +120,8 @@ export default class ReactDataTable extends Component {
 
                   return (
                     <th width={item.column_properties.width} scope="col"
-                        className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                        className={item.column_properties.freeze === true ? "freeze_col " + "col_" + item.column_properties.name : "col_" + item.column_properties.name}
+                        id={item.column_properties.name}
                         key={index}>
                       {item.column_properties.title}&nbsp;&nbsp;
                       <a href="#" onClick={this.changeOrder.bind(this, item.column_properties.name)}>
@@ -134,7 +135,7 @@ export default class ReactDataTable extends Component {
                 else {
                   return (
                     <th width={item.column_properties.width} scope="col"
-                        className={item.column_properties.freeze === true ? "freeze_col" : ""}
+                        className={item.column_properties.freeze === true ? "freeze_col " + "col_" + item.column_properties.name:"col_" +  item.column_properties.name}
                         key={index}>
                       {item.column_properties.title}
                     </th>
@@ -161,14 +162,12 @@ export default class ReactDataTable extends Component {
 
                       if (cols.column_properties.name === Object.keys(item)[i]) {
 
-
                         return (
                           <td
-                            className={cols.column_properties.freeze ? "freeze_col" : ""}
+                            className={cols.column_properties.freeze ? "freeze_col " + cols.column_properties.name + "_" + count : cols.column_properties.name + "_" + count}
+                            id={ cols.column_properties.name + "_" + index}
                             key={index+i}
                           >
-
-
 
                             {/* Fa Icons */}
                             {cols.fa_icon!==undefined && (
@@ -250,7 +249,7 @@ export default class ReactDataTable extends Component {
                                   if(txt.show===true){
                                     return(
                                       <Fragment>
-                                        <span className={txt.className}>{item[txt.name]}&nbsp;</span>
+                                        <span className={txt.className} id={txt.name + "_" + index}>{item[txt.name]}&nbsp;</span>
                                       </Fragment>
 
                                     )

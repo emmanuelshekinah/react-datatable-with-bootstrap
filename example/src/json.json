@@ -1,7 +1,7 @@
 {
         "tableOptions": {
           "table_title": "Hello",
-          "className": "table table-hover",
+          "className": "table table-hover sv",
           "tableContainerClassName": "table-responsive"
         },
         "colums": [
@@ -9,7 +9,7 @@
             {
                 "name": "id",
                 "title": "#",
-                "width": "id",
+                "width": "100",
                 "allowSort": true,
               "freeze": true
               },
@@ -28,7 +28,7 @@
           {
             "column_properties":
             {
-              "name": "name",
+              "name": "personnel",
               "title": "Action",
               "width": "",
               "allowSort": false,
@@ -49,24 +49,24 @@
           },
         {"column_properties":
             {
-                "name": "name",
-                "title": "#",
+                "name": "name2",
+                "title": "$$",
                 "width": "",
                 "allowSort": false,
-                "freeze": true
+                "freeze": false
               },
               "text":[
 
                 {
-                  "name": "name",
+                  "name": "name2",
                   "show": true,
-                  "className": ""
+                  "className": "wwwwww"
                 }
               ]
         },
         {"column_properties":
             {
-                "name": "name",
+                "name": "name3",
                 "title": "#",
                 "width": "",
                 "allowSort": false,
@@ -75,7 +75,7 @@
               "text":[
 
                 {
-                  "name": "name",
+                  "name": "name3",
                   "show": true,
                   "className": ""
                 }
@@ -83,7 +83,7 @@
         },
         {"column_properties":
             {
-                "name": "name",
+                "name": "name4",
                 "title": "#",
                 "width": "",
                 "allowSort": false,
@@ -92,7 +92,7 @@
               "text":[
 
                 {
-                  "name": "name",
+                  "name": "name4",
                   "show": true,
                   "className": ""
                 }
@@ -100,7 +100,7 @@
         },
         {"column_properties":
             {
-                "name": "name",
+                "name": "name5",
                 "title": "#",
                 "width": "",
                 "allowSort": false,
@@ -109,7 +109,7 @@
               "text":[
 
                 {
-                  "name": "name",
+                  "name": "name5",
                   "show": true,
                   "className": ""
                 }
@@ -117,7 +117,7 @@
         },
         {"column_properties":
             {
-                "name": "name",
+                "name": "name6",
                 "title": "#",
                 "width": "",
                 "allowSort": false,
@@ -126,7 +126,7 @@
               "text":[
 
                 {
-                  "name": "name",
+                  "name": "name6",
                   "show": true,
                   "className": ""
                 }

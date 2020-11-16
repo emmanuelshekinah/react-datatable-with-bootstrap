@@ -164,7 +164,7 @@ export default class ReactDataTable extends Component {
 
                         return (
                           <td
-                            className={cols.column_properties.freeze ? "freeze_col " + cols.column_properties.name + "_" + count : cols.column_properties.name + "_" + count}
+                            className={cols.column_properties.freeze ? "freeze_col " + cols.column_properties.name : cols.column_properties.name}
                             id={ cols.column_properties.name + "_" + index}
                             key={index+i}
                           >

@@ -49,7 +49,7 @@ class TableFilter extends Component{
             <button className="close"></button>
         </div> */}
 
-                                  <div className={"text-right pull-right search-wrapper "+this.state.is_search}>
+                                  <div className={"text-right pull-left search-wrapper "+this.state.is_search}>
                                         <div className="input-holder">
                                             <input type="text" className="search-input" placeholder="Type to search" value={this.state.search} onChange={this.props.search.bind(this)}></input>
                                                 <button className="search-icon" onClick={()=>{this.setState({is_search: 'active'})}}><span></span></button>

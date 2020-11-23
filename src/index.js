@@ -319,9 +319,13 @@ export default class ReactDataTable extends Component {
                                       <Fragment>{input.show===true && (
 
                                         <div className="input-group">
-                                          <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                          <input type={input.input_type} name={input.name}
+                                                 id={input.name +"_"+item.id}
+                                                 className={input.className}
                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                 defaultValue={input.defaultValue} />
+                                                 defaultValue={input.defaultValue}
+
+                                          />
                                         </div>
 
                                       )}</Fragment>

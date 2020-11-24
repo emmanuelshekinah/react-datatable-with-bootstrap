@@ -318,7 +318,7 @@ export default class ReactDataTable extends Component {
                                     return (
                                       <Fragment>{input.show===true && (
 
-                                        <div className="input-group">
+                                        <div className={"input-group " + input.name}>
                                           <input type={input.input_type} name={input.name}
                                                  id={input.name +"_"+item.id}
                                                  className={input.className}

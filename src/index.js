@@ -249,7 +249,7 @@ export default class ReactDataTable extends Component {
                                   if(txt.show===true){
                                     return(
                                       <Fragment>
-                                        <span className={txt.className} id={txt.name + "_" + index}>{item[txt.name]}&nbsp;</span>
+                                        <span className={txt.className} id={txt.name + "-" + index}>{item[txt.name]}&nbsp;</span>
                                       </Fragment>
 
                                     )
@@ -320,7 +320,7 @@ export default class ReactDataTable extends Component {
 
                                         <div className={"input-group " + input.name}>
                                           <input type={input.input_type} name={input.name}
-                                                 id={input.name +"_"+item.id}
+                                                 id={input.name +"-"+item.id}
                                                  className={input.className}
                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
                                                  defaultValue={input.defaultValue}

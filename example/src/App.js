@@ -28,6 +28,7 @@ export default class App extends Component{
     this.dataTableBtnAction = this.dataTableBtnAction.bind(this)
     this.dataTableOnChange = this.dataTableOnChange.bind(this)
     this.dataTableOnChangeInput = this.dataTableOnChangeInput.bind(this)
+   // this.dataTableOnChangeInputOnBlur = this.dataTableOnChangeInputOnBlur.bind(this)
   }
   dataTableBtnAction(id, actionType,e){
     console.log('Onclick Id value: ', id);
@@ -40,9 +41,10 @@ export default class App extends Component{
   }
   dataTableOnChangeInput(e){
     console.log(e.target.name+' :'+e.target.value);
+  }
 
-
-
+  dataTableOnChangeInputOnBlur(e){
+    console.log(" On Blur" + e.target.name+' :'+e.target.value);
   }
 
   render() {
@@ -52,6 +54,7 @@ export default class App extends Component{
                       dataTableOnChange={this.dataTableOnChange}
                       dataTableData={this.state.apiData}
                       dataTableOnChangeInput={this.dataTableOnChangeInput}
+                     // dataTableOnChangeInputOnBlur={this.dataTableOnChangeInputOnBlur}
       />
     )
   }

@@ -319,11 +319,13 @@ export default class ReactDataTable extends Component {
                                       <Fragment>{input.show===true && (
 
                                         <div className={"input-group " + input.name}>
-                                          <input type={input.input_type} name={input.name}
+                                          <input type={input.input_type}
+                                                 name={input.name + "-"+ item.id}
                                                  id={input.name +"-"+item.id}
                                                  className={input.className}
                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
                                                  defaultValue={item[input.name]}
+                                                 onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
 
                                           />
                                         </div>

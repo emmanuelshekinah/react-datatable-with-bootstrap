@@ -79,7 +79,18 @@
                   "show": true,
                   "className": ""
                 }
-              ]
+              ],
+
+          "input": [
+            {
+              "show": true,
+              "name": "name3",
+              "id": "name3",
+              "input_type": "text",
+              "className": "custom-control custom-checkbox",
+              "defaultValue":""
+            }
+          ]
         },
         {"column_properties":
             {

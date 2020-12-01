@@ -323,7 +323,7 @@ export default class ReactDataTable extends Component {
                                                  id={input.name +"-"+item.id}
                                                  className={input.className}
                                                  onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                 defaultValue={input.defaultValue}
+                                                 defaultValue={item[input.name]}
 
                                           />
                                         </div>

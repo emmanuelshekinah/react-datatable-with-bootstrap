@@ -157,7 +157,7 @@ export default class ReactDataTable extends Component {
             {this.state.apiData.map((item, index) => {
               var faCount = 0;
               return (
-                <tr key={item.id }>
+                <tr key={index }>
                   {this.state.columns.map((cols, count) => {
 
                     for (var i = 0; i < Object.keys(item).length; i++) {

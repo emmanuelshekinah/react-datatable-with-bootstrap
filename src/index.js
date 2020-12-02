@@ -315,23 +315,49 @@ export default class ReactDataTable extends Component {
                                 {cols.input.map((input, data)=>{
 
                                   if(input.input_type==='text'){
-                                    return (
-                                      <Fragment>{input.show===true && (
 
-                                        <div className={"input-group " + input.name}>
-                                          <input type={input.input_type}
-                                                 name={input.name + "-"+ item.id}
-                                                 id={input.name +"-"+item.id}
-                                                 className={input.className}
-                                                 onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                 defaultValue={item[input.name]}
-                                                 onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
+                                    if(input.extra!==undefined){
+                                      if(item[input.extra.depend_from_this_field]===true){
+                                        //return
+                                        return(
+                                          <Fragment>{input.show===true && (
 
-                                          />
-                                        </div>
+                                            <div className={"input-group " + input.name}>
+                                              <input type={input.input_type}
+                                                     name={input.name + "-"+ item.id}
+                                                     id={input.name +"-"+item.id}
+                                                     className={input.className}
+                                                     onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                     defaultValue={item[input.name]}
+                                                     onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
 
-                                      )}</Fragment>
-                                    )
+                                              />
+                                            </div>
+
+                                          )}</Fragment>
+                                        )
+                                      }
+                                    }
+                                    else{
+                                      return (
+                                        <Fragment>{input.show===true && (
+
+                                          <div className={"input-group " + input.name}>
+                                            <input type={input.input_type}
+                                                   name={input.name + "-"+ item.id}
+                                                   id={input.name +"-"+item.id}
+                                                   className={input.className}
+                                                   onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                   defaultValue={item[input.name]}
+                                                   onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
+
+                                            />
+                                          </div>
+
+                                        )}</Fragment>
+                                      )
+                                    }
+
                                   }
                                   else if(input.input_type==='checkbox'){
                                     return (

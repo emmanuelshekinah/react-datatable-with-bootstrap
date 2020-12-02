@@ -11,10 +11,9 @@ export default class App extends Component{
         'pageNate': [0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200],
         'totalTableData': 51,
         'data': [
-          {'id':1,'personnel': 'Chuck Norris', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
-          {'id':2,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
+          {'id':1,'personnel': 'Chuck Norris', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma', 'show_input': true},
+          {'id':2,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma', 'show_input': false},
           {'id':3,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
-          {'id':4,'personnel': 'Emmanuel Shekinah', 'defaultChecked': true},
           {'id':5,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
           {'id':6,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
           {'id':7,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},

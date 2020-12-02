@@ -89,7 +89,12 @@
               "id": "name3",
               "input_type": "text",
               "className": "custom-control custom-checkbox",
-              "defaultValue":""
+              "defaultValue":"",
+              "extra":
+              {
+                "depend_from_this_field": "show_input",
+                "conditional": "boolean"
+              }
             }
           ]
         },

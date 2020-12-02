@@ -42,6 +42,8 @@ export default class ReactDataTable extends Component {
     }, ()=>{
       this.props.dataTableOnChange(this.state)
     })
+
+
   }
   componentWillReceiveProps(nextProps){
     this.setState({
@@ -96,6 +98,7 @@ export default class ReactDataTable extends Component {
 
 
   }
+
   render(){
     return(
       <div>
@@ -154,7 +157,7 @@ export default class ReactDataTable extends Component {
             {this.state.apiData.map((item, index) => {
               var faCount = 0;
               return (
-                <tr key={index}>
+                <tr key={item.id }>
                   {this.state.columns.map((cols, count) => {
 
                     for (var i = 0; i < Object.keys(item).length; i++) {
@@ -167,6 +170,7 @@ export default class ReactDataTable extends Component {
                             className={cols.column_properties.freeze ? "freeze_col " + cols.column_properties.name : cols.column_properties.name}
                             id={ cols.column_properties.name + "_" + index}
                             key={index+i}
+                            //key={item.id !== undefined ? item.id +i : index+i}
                           >
 
                             {/* Fa Icons */}
@@ -249,9 +253,8 @@ export default class ReactDataTable extends Component {
                                   if(txt.show===true){
                                     return(
                                       <Fragment>
-                                        <span className={txt.className} id={txt.name + "-" + index}>{item[txt.name]}&nbsp;</span>
+                                        <span className={txt.className + " " + txt.name} id={txt.name + "-" + item.id}>{item[txt.name]}&nbsp;</span>
                                       </Fragment>
-
                                     )
                                   }
                                 })}

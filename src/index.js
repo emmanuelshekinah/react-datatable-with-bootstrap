@@ -352,8 +352,7 @@ export default class ReactDataTable extends Component {
                                                    id={input.name +"-"+item.id}
                                                    className={input.className}
                                                    onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                   //defaultValue={item[input.name]}
-                                                   value={item[input.name]}
+                                                   defaultValue={item[input.name]}
                                                    onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
 
                                             />

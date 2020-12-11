@@ -19,8 +19,11 @@ export default class ReactDataTable extends Component {
       searchInput: '',
       totalTableData: 0,
       sort_col:null,
-      is_ascending:true
+      is_ascending:true,
       //--end Datatable
+
+      // test state
+      //parentInputs: []
     }
 //--Datatable
     this.paginate = this.paginate.bind(this)
@@ -332,7 +335,8 @@ export default class ReactDataTable extends Component {
                                                      key={input.input_type + "-" + input.name +"-"+item.id}
                                                      className={input.className}
                                                      onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                     defaultValue={item[input.name]}
+                                                     //defaultValue={item[input.name]}
+                                                value={this.props.parentInputs !== null ? this.props.parentInputs[input.name +"-"+item.id] : item[input.name]}
                                                      onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
 
                                               />

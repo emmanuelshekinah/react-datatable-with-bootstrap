@@ -157,7 +157,7 @@ export default class ReactDataTable extends Component {
             {this.state.apiData.map((item, index) => {
               var faCount = 0;
               return (
-                <tr key={index }>
+                <tr key={index}>
                   {this.state.columns.map((cols, count) => {
 
                     for (var i = 0; i < Object.keys(item).length; i++) {
@@ -329,6 +329,7 @@ export default class ReactDataTable extends Component {
                                               <input type={input.input_type}
                                                      name={input.name + "-"+ item.id}
                                                      id={input.name +"-"+item.id}
+                                                     key={input.input_type + "-" + input.name +"-"+item.id}
                                                      className={input.className}
                                                      onChange={this.props.dataTableOnChangeInput.bind(this)}
                                                      defaultValue={item[input.name]}

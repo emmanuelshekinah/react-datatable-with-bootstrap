@@ -397,8 +397,6 @@ export default class ReactDataTable extends Component {
                         )
 
 
-
-
                       }
                     }
 

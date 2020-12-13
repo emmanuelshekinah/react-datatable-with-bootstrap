@@ -22,7 +22,8 @@ export default class App extends Component{
           {'id':10,'personnel': 'Emmanuel Shekinah', 'name2': 'Shekinah', 'name3': 'Shekinah', 'name4': 'Shekinah', 'name5': 'Shekinah', 'name6': 'Emma'},
 
         ]
-      }
+      },
+      //parentInputs:[{'name3-1':'kjhk'}]
     }
     this.dataTableBtnAction = this.dataTableBtnAction.bind(this)
     this.dataTableOnChange = this.dataTableOnChange.bind(this)

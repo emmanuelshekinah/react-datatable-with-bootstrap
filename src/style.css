@@ -8,7 +8,7 @@
 }
 .freeze_col{
   background-color: yellowgreen!important;
-  color: red!important;
+  /*color: red!important;*/
   position:sticky;
   left:0px;
 }

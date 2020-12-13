@@ -344,7 +344,7 @@ export default class ReactDataTable extends Component {
                             {/* Input */}
                             {cols.input!==undefined && (
                               <Fragment>
-                                {cols.input.mainpup((t, data)=>{
+                                {cols.input.map((t, data)=>{
 
                                   if(input.input_type==='text'){
 

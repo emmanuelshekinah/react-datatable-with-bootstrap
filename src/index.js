@@ -62,7 +62,7 @@ export default class ReactDataTable extends Component {
 
       setTimeout(() => {
         this.setState({hidetable:true})
-      }, 1500);
+      }, 2000);
 
 
 
@@ -472,6 +472,7 @@ export default class ReactDataTable extends Component {
 
                 </tr>
               )
+
             })}
 
             </tbody>

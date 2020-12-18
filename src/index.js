@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import TableFilter from "./tableComponents/TableFilter";
 import PagiNate from "./tableComponents/PagiNate";
 import './style.css'
+import TextInput from './tableComponents/TextInput';
 
 
 export default class ReactDataTable extends Component {
@@ -20,21 +21,14 @@ export default class ReactDataTable extends Component {
       totalTableData: 0,
       sort_col:null,
       is_ascending:true,
-      hidetable:true,
-      //--end Datatable
-
-      // test state
-      //parentInputs: []
     }
 //--Datatable
     this.paginate = this.paginate.bind(this)
     this.changeRecordsPerPage = this.changeRecordsPerPage.bind(this)
     this.search = this.search.bind(this)
-    this.onAction = this.onAction.bind(this)
     //--end Datatable
     this.changeOrder = this.changeOrder.bind(this)
     this.clearSearch = this.clearSearch.bind(this)
-    this.onChangeBlur = this.onChangeBlur.bind(this)
   }
 
   componentDidMount(){
@@ -56,17 +50,9 @@ export default class ReactDataTable extends Component {
       apiData: nextProps.dataTableData.data,
       pageNate: nextProps.dataTableData.pageNate,//---
       totalTableData: nextProps.dataTableData.totalTableData,
-
-
-    },()=>{
-
-      setTimeout(() => {
-        this.setState({hidetable:true})
-      }, 4800);
-
-
-
     })
+
+
   }
   changeOrder(col, e){
     this.setState({
@@ -78,8 +64,7 @@ export default class ReactDataTable extends Component {
   paginate(skip,e){
 
     this.setState({
-      skip: skip,
-      hidetable:false
+      skip: skip
     }, ()=>{
       this.props.dataTableOnChange(this.state)
     })
@@ -108,26 +93,7 @@ export default class ReactDataTable extends Component {
       this.props.dataTableOnChange(this.state)
     })
   }
-  onAction(e){
 
-  }
-  buttons =(e)=>{
-
-
-  }
-  onChangeBlur(e){
-
-    let tempid="temp-"+e.target.id;
-    let tempvalue=e.target.value;
-
-    this.setState({
-      hidetable:false
-    }, () => {
-      document.getElementById(tempid).value=tempvalue;
-
-    })
-    this.props.dataTableOnChangeInputOnBlur(e.target.id, e.target.name,e.target.value)
-  }
   render(){
     return(
       <div>
@@ -355,30 +321,19 @@ export default class ReactDataTable extends Component {
                                           <Fragment>{input.show===true && (
 
                                             <div className={"input-group " + input.name}>
-                                              {this.state.hidetable ? (
-                                                <input type={input.input_type}
-                                                       name={input.name + "-"+ item.id}
-                                                       id={input.name +"-"+item.id}
-                                                       key={input.input_type + "-" + input.name +"-"+item.id}
-                                                       className={input.className}
-                                                       onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                  //value={"6666"}
-                                                       defaultValue={item[input.name]}
-                                                  //value={ this.props.parentInputs[input.name +"-"+item.id] }
-                                                  //value={this.props.parentInputs !== null ? this.props.parentInputs[input.name +"-"+item.id] : item[input.name]}
-                                                       onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.onChangeBlur.bind(this) : ""}
 
-                                                />
-                                              ):(
-                                                <input type={input.input_type}
-                                                       name={"temp-"+input.name + "-"+ item.id}
-                                                       id={"temp-"+input.name +"-"+item.id}
-                                                       key={"temp-"+input.input_type + "-" + input.name +"-"+item.id}
-                                                       className={input.className}
-                                                       defaultValue={item[input.name]}
-                                                       disabled={true}
-                                                />
-                                              )}
+                                              <input type={input.input_type}
+                                                     name={input.name + "-"+ item.id}
+                                                     id={input.name +"-"+item.id}
+                                                     key={input.input_type + "-" + input.name +"-"+item.id}
+                                                     className={input.className}
+                                                     onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                     isBlur={this.props.dataTablesOptions.tableOptions.hasOnBlur}
+                                                     onChangeBlur={this.props.dataTableOnChangeInputOnBlur.bind(this)}
+                                                     defaultValue={item[input.name]}
+
+                                              ></input>
+
                                             </div>
 
                                           )}</Fragment>
@@ -390,27 +345,18 @@ export default class ReactDataTable extends Component {
                                         <Fragment>{input.show===true && (
 
                                           <div className={"input-group " + input.name}>
-                                            {this.state.hidetable ? (
-                                              <input type={input.input_type}
-                                                     name={input.name + "-"+ item.id}
-                                                     id={input.name +"-"+item.id}
-                                                     className={input.className}
-                                                     onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                     defaultValue={item[input.name]}
-                                                     onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.onChangeBlur.bind(this) : ""}
-                                                // onBlur={ this.props.dataTablesOptions.tableOptions.hasOnBlur === true ?  this.props.dataTableOnChangeInputOnBlur.bind(this) : ""}
 
-                                              />
-                                            ):(
-                                              <input type={input.input_type}
-                                                     name={"temp-"+input.name + "-"+ item.id}
-                                                     id={"temp-"+input.name +"-"+item.id}
-                                                     key={"temp-"+input.input_type + "-" + input.name +"-"+item.id}
-                                                     className={input.className}
-                                                     defaultValue={item[input.name]}
-                                                     disabled={true}
-                                              />
-                                            )}
+                                            <TextInput
+                                              type={input.input_type}
+                                              name={input.name + "-"+ item.id}
+                                              id={input.name +"-"+item.id}
+                                              className={input.className}
+                                              onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                              defaultValue={item[input.name]}
+                                              isBlur={this.props.dataTablesOptions.tableOptions.hasOnBlur}
+                                              onChangeBlur={this.props.dataTableOnChangeInputOnBlur.bind(this)}
+
+                                            />
                                           </div>
 
                                         )}</Fragment>
@@ -423,19 +369,12 @@ export default class ReactDataTable extends Component {
                                       <Fragment>{input.show===true && (
 
                                         <Fragment>
-                                          {this.state.hidetable ? (
-                                            <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
-                                                   onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                   defaultChecked={item.defaultChecked} />
-                                          ):(
-                                            <Fragment>
-                                              <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
 
-                                                     defaultChecked={false}
-                                                     checked={false}
-                                              />
-                                            </Fragment>
-                                          )}
+                                          <input type={input.input_type} name={input.name} id={item.id}  className={input.className}
+                                                 onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                 defaultChecked={item.defaultChecked} />
+
+
                                         </Fragment>
 
 

@@ -322,17 +322,30 @@ export default class ReactDataTable extends Component {
 
                                             <div className={"input-group " + input.name}>
 
-                                              <input type={input.input_type}
-                                                     name={input.name + "-"+ item.id}
-                                                     id={input.name +"-"+item.id}
-                                                     key={input.input_type + "-" + input.name +"-"+item.id}
-                                                     className={input.className}
-                                                     onChange={this.props.dataTableOnChangeInput.bind(this)}
-                                                     isBlur={this.props.dataTablesOptions.tableOptions.hasOnBlur}
-                                                     onChangeBlur={this.props.dataTableOnChangeInputOnBlur.bind(this)}
-                                                     defaultValue={item[input.name]}
+                                              {/*<input type={input.input_type}
+                                                                   name={input.name + "-"+ item.id}
+                                                                   id={input.name +"-"+item.id}
+                                                                   key={input.input_type + "-" + input.name +"-"+item.id}
+                                                                   className={input.className}
+                                                                   onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                                   isBlur={this.props.dataTablesOptions.tableOptions.hasOnBlur}
+                                                                   onChangeBlur={this.props.dataTableOnChangeInputOnBlur.bind(this)}
+                                                                   defaultValue={item[input.name]}
 
-                                              ></input>
+                                                            ></input>*/}
+
+                                              <TextInput
+                                                type={input.input_type}
+                                                name={input.name + "-"+ item.id}
+                                                id={input.name +"-"+item.id}
+                                                className={input.className}
+                                                onChange={this.props.dataTableOnChangeInput.bind(this)}
+                                                defaultValue={item[input.name]}
+                                                isBlur={this.props.dataTablesOptions.tableOptions.hasOnBlur}
+                                                onChangeBlur={this.props.dataTableOnChangeInputOnBlur.bind(this)}
+
+                                              />
+
 
                                             </div>
 
